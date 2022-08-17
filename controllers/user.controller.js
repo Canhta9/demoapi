@@ -40,12 +40,11 @@ const lookup = async function(req, res) {
             console.log(id)
             User.find({_id:id});
             res.status(200).send(user)
-            return
         }else{
-            User.find();
+            const user = await User.find({});
             res.status(200).send(user)
-            return
         }
+        return
     }
     catch (error) {
         console.log('error', error)
